@@ -77,6 +77,24 @@ plot(summary_by_time,type="l")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+The time of day with the highest average number of steps is determined thus:
+
+```r
+head(arrange(summary_by_time,desc(average)))
+```
+
+```
+## # A tibble: 6 x 2
+##   interval average
+##      <int>   <dbl>
+## 1      835    206.
+## 2      840    196.
+## 3      850    183.
+## 4      845    180.
+## 5      830    177.
+## 6      820    171.
+```
+It is seen to be the 835th time interval.
 
 ### Imputing missing values
 
@@ -109,7 +127,8 @@ Here is a histogram of the number of steps taken per day:
 hist(summary_imputed_by_day$total,breaks=10, xlab="total steps per day", main="steps per day (imputed)")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+
 
 The old histogram had the leftmost bar (the one containing the days with the most missing values) quite high. The new histogram has the leftmost bar more consistent with the pattern of the rest of the data; that bar is now the same height as the one to its right.
 The mean and median of the total steps per day are shown in the following summary:
@@ -140,6 +159,6 @@ xyplot(steps ~ interval|weekpart,
            layout=c(1,2))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 It can be seen by comparing the two panels of the plot that activity on the weekends tends to start later in the day and continue until later in the day, than it does on weekdeays.

@@ -38,6 +38,11 @@ summary(summary_by_day)
 ```{r}
 plot(summary_by_time,type="l")
 ```
+The time of day with the highest average number of steps is determined thus:
+```{r}
+head(arrange(summary_by_time,desc(average)))
+```
+It is seen to be the 835th time interval.
 
 ### Imputing missing values
 ```{r}
@@ -57,6 +62,9 @@ summary_imputed_by_day<-summarize(activity_imputed_by_day,total = sum(imputed,na
 Here is a histogram of the number of steps taken per day:
 ```{r}
 hist(summary_imputed_by_day$total,breaks=10, xlab="total steps per day", main="steps per day (imputed)")
+```
+```{r}
+
 ```
 
 The old histogram had the leftmost bar (the one containing the days with the most missing values) quite high. The new histogram has the leftmost bar more consistent with the pattern of the rest of the data; that bar is now the same height as the one to its right.
