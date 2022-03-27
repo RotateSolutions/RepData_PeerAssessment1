@@ -1,5 +1,6 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
+title: "How Many Steps Taken -- patterns by day and by time of day"
+author: "Jason Colwell"
 output: 
   html_document: 
     keep_md: yes
